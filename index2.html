@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resultado Face++</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    #result { margin-top: 20px; }
+    .emotion { margin-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Resultado de análisis facial</h1>
+  <img src="feid_face.jpg" width="200" alt="Foto analizada" />
+  <div id="result">Cargando resultados...</div>
+
+  <script>
+    fetch('resultado.json')
+      .then(res => res.json())
+      .then(data => {
+        const face = data.faces[0]?.attributes;
+        if (!face) {
+          document.getElementById('result').innerText = "No se detectó ningún rostro.";
+          return;
+        }
+
+        const { age, gender, emotion } = face;
+
+        let html = `
+          <p><strong>Edad:</strong> ${age.value}</p>
+          <p><strong>Género:</strong> ${gender.value}</p>
+          <p><strong>Emociones:</strong></p>
+          <ul>
+            ${Object.entries(emotion)
+              .map(([k, v]) => `<li class="emotion">${k}: ${v.toFixed(2)}%</li>`)
+              .join("")}
+          </ul>
+        `;
+
+        document.getElementById('result').innerHTML = html;
+      });
+  </script>
+</body>
+</html>

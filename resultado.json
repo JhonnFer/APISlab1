@@ -1,0 +1,34 @@
+{
+  "request_id": "1746674799,91c28fbc-ac38-410e-ada0-b8e4fadea9b1",
+  "time_used": 142,
+  "faces": [
+    {
+      "face_token": "2dde1c3609a9541090521b3d9f91aafc",
+      "face_rectangle": {
+        "top": 85,
+        "left": 312,
+        "width": 108,
+        "height": 108
+      },
+      "attributes": {
+        "gender": {
+          "value": "Male"
+        },
+        "age": {
+          "value": 27
+        },
+        "emotion": {
+          "anger": 0.353,
+          "disgust": 65.166,
+          "fear": 0.334,
+          "happiness": 30.813,
+          "neutral": 3.057,
+          "sadness": 0.11,
+          "surprise": 0.167
+        }
+      }
+    }
+  ],
+  "image_id": "tbnDJi4Xbi+yVAweGV2HHg==",
+  "face_num": 1
+}
